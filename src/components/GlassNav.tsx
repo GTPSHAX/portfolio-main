@@ -89,65 +89,93 @@ export function GlassNav({
       {isMobile && (
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute top-full left-0 right-0 w-full flex items-center justify-center px-5 sm:px-8"
-            >
-              <GlassSurface width="100%" height="fit-content" borderRadius={10}>
-                <nav
-                  className={cn("px-10 flex space-x-4 w-full", className)}
-                  id="nav"
-                  aria-label={ariaLabel}
-                >
-                  {logo && (
-                    <div
-                      className="shrink-0"
-                      id="Brand"
-                      aria-label="Brand Logo"
-                    >
-                      {logo}
-                    </div>
-                  )}
+            <>
+              <motion.button
+                type="button"
+                aria-label="Close navigation menu backdrop"
+                className="fixed inset-0 z-40 bg-black/45 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                onClick={() => setIsOpen(false)}
+              />
 
-                  <ul
-                    id="nav-items"
-                    className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-4 md:space-y-0 md:space-x-4 h-full flex-1"
-                    aria-label="Navigation Items"
+              <motion.div
+                initial={{ opacity: 0, y: -18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute top-full left-0 right-0 z-50 w-full flex items-center justify-center px-5 sm:px-8"
+              >
+                <GlassSurface width="100%" height="fit-content" borderRadius={10}>
+                  <nav
+                    className={cn("px-10 flex space-x-4 w-full", className)}
+                    id="nav"
+                    aria-label={ariaLabel}
                   >
-                    {children}
-                  </ul>
+                    {logo && (
+                      <div
+                        className="shrink-0"
+                        id="Brand"
+                        aria-label="Brand Logo"
+                      >
+                        {logo}
+                      </div>
+                    )}
 
-                  {actionButtons && (
-                    <div
-                      className="ml-auto flex space-x-4"
-                      id="nav-actions"
-                      aria-label="Navigation actions"
+                    <ul
+                      id="nav-items"
+                      className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-4 md:space-y-0 md:space-x-4 h-full flex-1"
+                      aria-label="Navigation Items"
                     >
-                      {actionButtons}
-                    </div>
-                  )}
-                </nav>
-              </GlassSurface>
-            </motion.div>
+                      {children}
+                    </ul>
+
+                    {actionButtons && (
+                      <div
+                        className="ml-auto flex space-x-4"
+                        id="nav-actions"
+                        aria-label="Navigation actions"
+                      >
+                        {actionButtons}
+                      </div>
+                    )}
+                  </nav>
+                </GlassSurface>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       )}
 
       {/* Burger toggler for mobile */}
       {isMobile && (
-        <GlassSurface width={50} height={50} borderRadius={50}>
-          <button
+        <GlassSurface width={50} height={50} borderRadius={50} className="z-60">
+          <motion.button
             className="flex flex-col items-center justify-center w-full h-full"
             aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
             onClick={() => setIsOpen((prev) => !prev)}
+            whileTap={{ scale: 0.92 }}
+            transition={{ duration: 0.12 }}
           >
-            <span className="block w-6 h-0.5 bg-white mb-1"></span>
-            <span className="block w-6 h-0.5 bg-white mb-1"></span>
-            <span className="block w-6 h-0.5 bg-white"></span>
-          </button>
+            <motion.span
+              className="block w-6 h-0.5 bg-white mb-1"
+              animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.22, ease: "easeInOut" }}
+            />
+            <motion.span
+              className="block w-6 h-0.5 bg-white mb-1"
+              animate={isOpen ? { opacity: 0, x: 8 } : { opacity: 1, x: 0 }}
+              transition={{ duration: 0.18, ease: "easeInOut" }}
+            />
+            <motion.span
+              className="block w-6 h-0.5 bg-white"
+              animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.22, ease: "easeInOut" }}
+            />
+          </motion.button>
         </GlassSurface>
       )}
     </div>
