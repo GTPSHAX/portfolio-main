@@ -30,16 +30,6 @@ const Navbar = async () => {
         </GlassNavItem>
       ))}
     </GlassNav>
-    // <CardNav
-    //   logo={vercel.src}
-    //   logoAlt="Company Logo"
-    //   items={items}
-    //   baseColor="#fff"
-    //   menuColor="#000"
-    //   buttonBgColor="#111"
-    //   buttonTextColor="#fff"
-    //   ease="power3.out"
-    // />
   );
 };
 
