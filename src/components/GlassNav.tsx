@@ -28,6 +28,30 @@ export function GlassNav({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const isMobile = useIsMobile();
 
+  const navContent = (
+    <nav className={cn("px-4 md:px-10 flex space-x-4 w-full bg-accent/80 rounded-md md:bg-transparent md:rounded-none", className)} id="nav" aria-label={ariaLabel}>
+      {logo && (
+        <div className="shrink-0" id="Brand" aria-label="Brand Logo">
+          {logo}
+        </div>
+      )}
+
+      <ul
+        id="nav-items"
+        className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-4 md:space-y-0 md:space-x-4 h-full flex-1"
+        aria-label="Navigation Items"
+      >
+        {children}
+      </ul>
+
+      {actionButtons && (
+        <div className="ml-auto flex space-x-4" id="nav-actions" aria-label="Navigation actions">
+          {actionButtons}
+        </div>
+      )}
+    </nav>
+  );
+
   return (
     <div
       className={cn(
@@ -53,35 +77,7 @@ export function GlassNav({
             height={isMobile ? "fit-content" : 50}
             borderRadius={isMobile ? 10 : 50}
           >
-            <nav
-              className={cn("px-10 flex space-x-4 w-full", className)}
-              id="nav"
-              aria-label={ariaLabel}
-            >
-              {logo && (
-                <div className="shrink-0" id="Brand" aria-label="Brand Logo">
-                  {logo}
-                </div>
-              )}
-
-              <ul
-                id="nav-items"
-                className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-4 md:space-y-0 md:space-x-4 h-full flex-1"
-                aria-label="Navigation Items"
-              >
-                {children}
-              </ul>
-
-              {actionButtons && (
-                <div
-                  className="ml-auto flex space-x-4"
-                  id="nav-actions"
-                  aria-label="Navigation actions"
-                >
-                  {actionButtons}
-                </div>
-              )}
-            </nav>
+            {navContent}
           </GlassSurface>
         </div>
       )}
@@ -93,7 +89,7 @@ export function GlassNav({
               <motion.button
                 type="button"
                 aria-label="Close navigation menu backdrop"
-                className="fixed inset-0 z-40 bg-black/45 backdrop-blur-sm"
+                className="fixed inset-0 z-40 bg-black/55"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -108,41 +104,9 @@ export function GlassNav({
                 transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute top-full left-0 right-0 z-50 w-full flex items-center justify-center px-5 sm:px-8"
               >
-                <GlassSurface width="100%" height="fit-content" borderRadius={10}>
-                  <nav
-                    className={cn("px-10 flex space-x-4 w-full", className)}
-                    id="nav"
-                    aria-label={ariaLabel}
-                  >
-                    {logo && (
-                      <div
-                        className="shrink-0"
-                        id="Brand"
-                        aria-label="Brand Logo"
-                      >
-                        {logo}
-                      </div>
-                    )}
-
-                    <ul
-                      id="nav-items"
-                      className="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-4 md:space-y-0 md:space-x-4 h-full flex-1"
-                      aria-label="Navigation Items"
-                    >
-                      {children}
-                    </ul>
-
-                    {actionButtons && (
-                      <div
-                        className="ml-auto flex space-x-4"
-                        id="nav-actions"
-                        aria-label="Navigation actions"
-                      >
-                        {actionButtons}
-                      </div>
-                    )}
-                  </nav>
-                </GlassSurface>
+                <div className="w-full rounded-xl border border-white/20 bg-black/70 p-2">
+                  {navContent}
+                </div>
               </motion.div>
             </>
           )}
