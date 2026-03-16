@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import pluginImport from "eslint-plugin-import";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -19,6 +20,11 @@ const eslintConfig = defineConfig([
     "src/components/SplitContent.tsx",
     "src/components/FadeContent.tsx",
   ]),
+  {
+    plugins: {
+      import: pluginImport
+    }
+  }
 ]);
 
 export default eslintConfig;
