@@ -18,13 +18,3 @@ declare module '*.css' {
   const src: string;
   export default src;
 }
-
-declare module "*.mdx" {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  export type Frontmatter = Record<string, any>
-
-  import { MDXProps } from 'mdx/types'
-  export default function MDXContent(props: MDXProps): JSX.Element
-
-  export const frontmatter: Frontmatter
-}
