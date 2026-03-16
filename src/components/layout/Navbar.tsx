@@ -1,7 +1,7 @@
 "use server";
 
 import { GlassNav, GlassNavItem } from "@/components/GlassNav";
-import * as navbarContent from "#/content/navbar.mdx";
+import { frontmatter } from "#/content/navbar.mdx";
 import Link from "next/link";
 
 interface NavbarProps {
@@ -14,7 +14,7 @@ interface NavbarProps {
 }
 
 const Navbar = async () => {
-  const navbarFrontmatter = (navbarContent as { frontmatter?: NavbarProps }).frontmatter;
+  const navbarFrontmatter = frontmatter as NavbarProps;
 
   return (
     <GlassNav label={navbarFrontmatter?.label ?? "Default Label"} ariaLabel="Main navigation">
