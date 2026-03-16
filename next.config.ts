@@ -1,6 +1,4 @@
 import nextMDX from '@next/mdx';
-import remarkFrontmatter from 'remark-frontmatter';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
