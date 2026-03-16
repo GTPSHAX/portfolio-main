@@ -2,6 +2,7 @@
 
 import { GlassNav, GlassNavItem } from "@/components/GlassNav";
 import * as navbarContent from "#/content/navbar.mdx";
+import Link from "next/link";
 
 interface NavbarProps {
   label: string;
@@ -50,7 +51,13 @@ const Navbar = async () => {
     <GlassNav label={navbarFrontmatter?.label ?? "Default Label"} ariaLabel="Main navigation">
       {navbarFrontmatter?.items.map((item) => (
         <GlassNavItem key={item.label} ariaLabel={item.ariaLabel}>
-          {item.label}
+          <Link
+            href={item.href}
+            className="flex h-full w-full items-center justify-center px-4 py-2"
+            aria-label={item.ariaLabel}
+          >
+            {item.label}
+          </Link>
         </GlassNavItem>
       ))}
     </GlassNav>
