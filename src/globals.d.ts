@@ -20,8 +20,7 @@ declare module '*.css' {
 }
 
 declare module "*.mdx" {
-  import type { ReactNode } from 'react'
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   export type Frontmatter = Record<string, any>
 
   import { MDXProps } from 'mdx/types'
