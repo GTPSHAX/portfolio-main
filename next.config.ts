@@ -12,6 +12,7 @@ const withMDX = nextMDX({
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  allowedDevOrigins: ["localhost", "127.0.0.1"],
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     mdxRs: process.env.WITH_MDX_RS === 'true',
