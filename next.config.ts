@@ -15,6 +15,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     mdxRs: process.env.WITH_MDX_RS === 'true',
+    optimizePackageImports: ['react-icons'],
   },
 }
 
