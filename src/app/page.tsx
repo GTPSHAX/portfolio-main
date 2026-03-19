@@ -1,10 +1,19 @@
+"use server";
+
 import { outfit, rubikGlitch } from "@/fonts/google";
 import Opening from "@/components/Opening";
 import MainLayout from "@/components/layout/MainLayout";
 import Image from "next/image";
 import { blastimoSans, cracked, drunkText } from "@/fonts/local";
+import { frontmatter } from "#/content/index.mdx";
 
-export default function Home() {
+interface IndexFrontmatter {
+  bigBoldTypography: string;
+}
+
+export default async function Home() {
+  const indexFrontmatter = frontmatter as IndexFrontmatter;
+
   return (
     <MainLayout className={`relative`}>
       <section
@@ -26,7 +35,7 @@ export default function Home() {
         <div
           className={`absolute bottom-30 ${blastimoSans.className} font-extrabold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap`}
         >
-          RAFIE HASANNUDIN
+          {indexFrontmatter.bigBoldTypography}
         </div>
 
         <div className="container mx-auto px-6 h-full">
