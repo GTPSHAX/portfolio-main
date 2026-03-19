@@ -10,12 +10,15 @@ import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
 import Link from "next/link";
 
 interface IndexFrontmatter {
+  name: string;
   bigBoldTypography: string;
   socialLinks: {
     type: SocialIconType;
     href: string;
     ariaLabel: string;
   }[];
+  openToWork: boolean;
+  roles?: string[];
 }
 
 export default async function Home() {
