@@ -14,7 +14,7 @@ export default function MainLayout({ children, opening, className }: MainLayoutP
       { opening && opening }
       <Header />
 
-      <main className={cn(`min-h-dvh`, className)}>
+      <main className={className}>
         {children}
       </main>
     </>
