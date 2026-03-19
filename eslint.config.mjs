@@ -15,8 +15,6 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     
     // Custom ignores:
-    "src/components/SplitText.tsx",
-    "src/components/GlassSurface.tsx",
   ]),
   {
     plugins: {
