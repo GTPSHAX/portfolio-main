@@ -6,9 +6,16 @@ import MainLayout from "@/components/layout/MainLayout";
 import Image from "next/image";
 import { blastimoSans, cracked, drunkText } from "@/fonts/local";
 import { frontmatter } from "#/content/index.mdx";
+import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
+import Link from "next/link";
 
 interface IndexFrontmatter {
   bigBoldTypography: string;
+  socialLinks: {
+    type: SocialIconType;
+    href: string;
+    ariaLabel: string;
+  }[];
 }
 
 export default async function Home() {
@@ -42,7 +49,26 @@ export default async function Home() {
         <div className="container mx-auto px-6 h-full">
           {/* Profile Image */}
           <div className="relative w-full h-full">
-            <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center border border-black">
+            {/* Social Links */}
+            <div className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group">
+              <div className="h-5 w-1 bg-background group-hover:opacity-70" />
+              {indexFrontmatter.socialLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  className="group-hover:not-hover:opacity-70"
+                >
+                  {getSocialIcon(link.type, 30)}
+                </Link>
+              ))}
+              <div className="h-15 w-1 bg-background group-hover:opacity-70" />
+            </div>
+
+            {/* Profile Image */}
+            <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center border border-black pointer-events-none">
               <Image
                 src="/images/profile.png"
                 alt="Profile Picture"
