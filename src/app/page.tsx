@@ -25,14 +25,14 @@ export default async function Home() {
     <MainLayout className={`relative`}>
       <section
         id="hero"
-        className="bg-accent-foreground text-accent h-dvh flex items-center justify-center relative overflow-clip"
+        className="bg-accent-foreground text-accent h-screen flex items-center justify-center relative overflow-clip"
       >
         {/* Background Hero (mask) */}
         <Image
           src="/images/background-hero.jpg"
           alt="Hero Background"
           fill
-          className="object-cover object-center grayscale mix-blend-screen z-1"
+          className="object-cover object-center grayscale mix-blend-screen z-1 pointer-events-none"
           priority
           quality={75}
           draggable={false}
