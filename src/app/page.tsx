@@ -81,12 +81,12 @@ export default async function Home() {
                 {/* Main Headline */}
                 <div className="flex flex-col mt-3">
                   <p
-                    className={`${outfit.className} text-2xl md:text-3xl font-light`}
+                    className={`${outfit.className} text-xl sm:text-2xl md:text-3xl font-light`}
                   >
                     Hello, I'm
                   </p>
                   <h1
-                    className={`${bitsumis.className} font-semibold text-[3.4rem] md:text-6xl lg:text-[5rem] leading-[0.7]`}
+                    className={`${bitsumis.className} font-semibold text-[3rem] sm:text-[3.4rem] md:text-6xl lg:text-[5rem] leading-[0.7]`}
                     dangerouslySetInnerHTML={{ __html: indexFrontmatter.name }}
                   />
 
@@ -100,7 +100,7 @@ export default async function Home() {
                         <li
                           key={index}
                           aria-label={role}
-                          className={`${outfit.className} text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
+                          className={`${outfit.className} text-[0.9rem] sm:text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
                         >
                           {role}
                         </li>
@@ -109,7 +109,7 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative z-2 pt-10 w-1/2 h-full">
+            <div className="relative pt-10 w-1/2 h-full">
               {/* Social Links */}
               <nav className="absolute bottom-20 z-3 md:z-auto md:top-0 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
                 <div
