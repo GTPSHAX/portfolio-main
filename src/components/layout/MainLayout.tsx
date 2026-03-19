@@ -10,13 +10,13 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children, opening, className }: MainLayoutProps) {
   return (
-    <div className={cn(`min-h-dvh`, className)}>
+    <>
       { opening && opening }
       <Header />
 
-      <main className="container mx-auto px-4 py-8">
+      <main className={cn(`min-h-dvh`, className)}>
         {children}
       </main>
-    </div>
+    </>
   );
 }
