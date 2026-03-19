@@ -44,7 +44,7 @@ export default async function Home() {
         {/* Big Bold Typography */}
         <div
           aria-hidden="true"
-          className={`absolute bottom-30 ${blastimoSans.className} font-bold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap pointer-events-none`}
+          className={`absolute bottom-30 ${blastimoSans.className} font-bold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-30 uppercase leading-[0.8] text-nowrap pointer-events-none`}
         >
           {indexFrontmatter.bigBoldTypography}
         </div>
@@ -78,7 +78,7 @@ export default async function Home() {
               height={800}
               priority
               unoptimized
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none grayscale min-w-125 2md:min-w-225 z-2"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none grayscale min-w-125 2md:min-w-225 z-3"
               draggable={false}
             />
           </div>
