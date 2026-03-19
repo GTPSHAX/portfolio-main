@@ -14,6 +14,7 @@ import {
 import { frontmatter } from "#/content/index.mdx";
 import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface IndexFrontmatter {
   name: string;
