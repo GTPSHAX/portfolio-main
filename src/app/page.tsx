@@ -13,6 +13,7 @@ import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import TerminalWindow from "@/components/TerminalWindow";
+import MotionFadeIn from "@/components/MotionFadeIn";
 
 interface IndexFrontmatter {
   name: string;
@@ -57,7 +58,7 @@ export default async function Home() {
         <div className="container mx-auto px-6 pt-10 h-full">
           {/* Hero Content */}
           <div className="relative w-full h-full flex items-center">
-            <div className="relative z-2 pt-10 flex-1 h-full">
+            <MotionFadeIn delay={3} className="relative z-2 pt-10 flex-1 h-full">
               {/* Greetings Text Container */}
               <div className="flex flex-col items-start gap-3">
                 {/* Badge */}
@@ -118,8 +119,8 @@ export default async function Home() {
                   View Projects
                 </Link>
               </Button>
-            </div>
-            <div className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full">
+            </MotionFadeIn>
+            <MotionFadeIn delay={3.15} className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full">
               {/* Social Links */}
               <nav className="absolute bottom-14 lg:bottom-20 z-3 md:z-auto md:top-0 right-0 p-4 lg:p-6 flex flex-col items-center gap-3 lg:gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
                 <div
@@ -164,19 +165,24 @@ export default async function Home() {
                   Building... ✓
                 </p>
               </TerminalWindow>
-            </div>
+            </MotionFadeIn>
 
             {/* Profile Image */}
-            <Image
-              src="/images/profile.png"
-              alt="Profile Picture"
-              width={700}
-              height={800}
-              priority
-              unoptimized
+            <MotionFadeIn
+              delay={3.3}
               className="absolute bottom-0 left-1/2 -translate-x-1/2 md:-translate-x-1/3 lg:-translate-x-1/2 pointer-events-none grayscale min-w-120 z-3"
-              draggable={false}
-            />
+            >
+              <Image
+                src="/images/profile.png"
+                alt="Profile Picture"
+                width={700}
+                height={800}
+                priority
+                unoptimized
+                className="w-full h-auto"
+                draggable={false}
+              />
+            </MotionFadeIn>
           </div>
         </div>
       </section>
