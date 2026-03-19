@@ -121,9 +121,9 @@ export default async function Home() {
                 </Link>
               </Button>
             </div>
-            <div className="relative pt-10 w-1/2 h-full">
+            <div className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full">
               {/* Social Links */}
-              <nav className="absolute bottom-20 z-3 md:z-auto md:top-0 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
+              <nav className="absolute bottom-14 lg:bottom-20 z-3 md:z-auto md:top-0 right-0 p-4 lg:p-6 flex flex-col items-center gap-3 lg:gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
                 <div
                   aria-hidden="true"
                   className="h-5 w-1 bg-background group-hover:opacity-70"
@@ -151,7 +151,9 @@ export default async function Home() {
                 <div className="bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden">
                   {/* Window Header */}
                   <div className="bg-accent/20 border-b border-accent px-4 py-3 flex items-center justify-between">
-                    <span className={`${robotoMono.className} text-xs font-semibold text-accent`}>
+                    <span
+                      className={`${robotoMono.className} text-xs font-semibold text-accent`}
+                    >
                       terminal
                     </span>
                     <div className="flex gap-2">
@@ -163,22 +165,34 @@ export default async function Home() {
 
                   {/* Terminal Content */}
                   <div className="p-4 text-accent text-sm space-y-1 font-light">
-                    <p className={`${robotoMono.className} text-accent opacity-80`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-80`}
+                    >
                       $ whoami
                     </p>
-                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-60`}
+                    >
                       developer
                     </p>
-                    <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-80 mt-3`}
+                    >
                       $ pwd
                     </p>
-                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-60`}
+                    >
                       /home/developer/projects
                     </p>
-                    <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-80 mt-3`}
+                    >
                       $ npm run build
                     </p>
-                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                    <p
+                      className={`${robotoMono.className} text-accent opacity-60`}
+                    >
                       Building... ✓
                     </p>
                   </div>
@@ -194,7 +208,7 @@ export default async function Home() {
               height={800}
               priority
               unoptimized
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none grayscale min-w-125 2md:min-w-225 z-3"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 md:-translate-x-1/3 lg:-translate-x-1/2 pointer-events-none grayscale min-w-120 z-3"
               draggable={false}
             />
           </div>
