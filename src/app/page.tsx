@@ -109,6 +109,17 @@ export default async function Home() {
                   </ul>
                 </div>
               </div>
+
+              {/* CTA Button */}
+              <Button
+                asChild
+                size="lg"
+                className={`${outfit.className} text-base md:text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent border border-accent mt-10`}
+              >
+                <Link href="#projects" scroll>
+                  View Projects
+                </Link>
+              </Button>
             </div>
             <div className="relative pt-10 w-1/2 h-full">
               {/* Social Links */}
