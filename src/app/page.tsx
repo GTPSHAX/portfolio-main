@@ -38,6 +38,7 @@ export default async function Home() {
           {indexFrontmatter.bigBoldTypography}
         </div>
 
+        {/* Hero Content */}
         <div className="container mx-auto px-6 h-full">
           {/* Profile Image */}
           <div className="relative w-full h-full">
