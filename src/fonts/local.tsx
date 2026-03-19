@@ -20,3 +20,17 @@ export const blastimoSans = localFont({
   weight: "400",
   display: "swap",
 });
+
+export const conflict3040 = localFont({
+  src: "./local/Conflict 3040.otf",
+  variable: "--font-conflict-3040",
+  weight: "400",
+  display: "swap",
+});
+
+export const bitsumis = localFont({
+  src: "./local/BITSUMIS.ttf",
+  variable: "--font-bitsumis",
+  weight: "400",
+  display: "swap",
+});
