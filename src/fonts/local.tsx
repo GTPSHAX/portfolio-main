@@ -7,7 +7,7 @@ export const drunkText = localFont({
   display: "swap",
 });
 
-export const cracked = localFont({
+export const crackedCode = localFont({
   src: "./local/Cracked Code.ttf",
   variable: "--font-cracked",
   weight: "400",
