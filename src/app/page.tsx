@@ -40,7 +40,7 @@ export default async function Home() {
 
         {/* Big Bold Typography */}
         <div
-          className={`absolute bottom-30 ${blastimoSans.className} font-extrabold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap`}
+          className={`absolute bottom-30 ${blastimoSans.className} font-bold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap`}
         >
           {indexFrontmatter.bigBoldTypography}
         </div>
@@ -49,7 +49,7 @@ export default async function Home() {
           {/* Hero Content */}
           <div className="relative w-full h-full">
             {/* Social Links */}
-            <div className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group">
+            <div className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300">
               <div className="h-5 w-1 bg-background group-hover:opacity-70" />
               {indexFrontmatter.socialLinks.map((link, index) => (
                 <Link
@@ -67,7 +67,7 @@ export default async function Home() {
             </div>
 
             {/* Profile Image */}
-            <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center border border-black pointer-events-none">
+            <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center pointer-events-none">
               <Image
                 src="/images/profile.png"
                 alt="Profile Picture"
