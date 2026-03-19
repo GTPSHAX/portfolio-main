@@ -22,7 +22,7 @@ export default async function Home() {
   const indexFrontmatter = frontmatter as IndexFrontmatter;
 
   return (
-    <MainLayout className={`relative`}>
+    <MainLayout className="relative">
       <section
         id="hero"
         className="bg-accent-foreground text-accent h-screen flex items-center justify-center relative overflow-clip"
@@ -40,17 +40,18 @@ export default async function Home() {
 
         {/* Big Bold Typography */}
         <div
-          className={`absolute bottom-30 ${blastimoSans.className} font-bold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap`}
+          aria-hidden="true"
+          className={`absolute bottom-30 ${blastimoSans.className} font-bold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap pointer-events-none`}
         >
           {indexFrontmatter.bigBoldTypography}
         </div>
 
-        <div className="container mx-auto px-6 h-full">
+        <div className="container mx-auto px-6 pt-10 h-full">
           {/* Hero Content */}
           <div className="relative w-full h-full">
             {/* Social Links */}
-            <div className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300">
-              <div className="h-5 w-1 bg-background group-hover:opacity-70" />
+            <nav className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300">
+              <div aria-hidden="true" className="h-5 w-1 bg-background group-hover:opacity-70" />
               {indexFrontmatter.socialLinks.map((link, index) => (
                 <Link
                   key={index}
@@ -63,22 +64,20 @@ export default async function Home() {
                   {getSocialIcon(link.type, 30)}
                 </Link>
               ))}
-              <div className="h-15 w-1 bg-background group-hover:opacity-70" />
-            </div>
+              <div aria-hidden="true" className="h-15 w-1 bg-background group-hover:opacity-70" />
+            </nav>
 
             {/* Profile Image */}
-            <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center pointer-events-none">
-              <Image
-                src="/images/profile.png"
-                alt="Profile Picture"
-                width={700}
-                height={800}
-                preload
-                unoptimized
-                className="grayscale min-w-125 2md:min-w-225 z-2"
-                draggable={false}
-              />
-            </div>
+            <Image
+              src="/images/profile.png"
+              alt="Profile Picture"
+              width={700}
+              height={800}
+              priority
+              unoptimized
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none grayscale min-w-125 2md:min-w-225 z-2"
+              draggable={false}
+            />
           </div>
         </div>
       </section>
