@@ -58,7 +58,7 @@ export default async function Home() {
         <div className="container mx-auto px-6 pt-10 h-full">
           {/* Hero Content */}
           <div className="relative w-full h-full flex items-center">
-            <div className="relative z-2 pt-10 w-1/2 h-full">
+            <div className="relative z-2 pt-10 flex-1 h-full">
               {/* Greetings Text Container */}
               <div className="flex flex-col items-start gap-3">
                 {/* Badge */}
