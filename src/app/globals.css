@@ -131,3 +131,7 @@
 * button {
   @apply cursor-pointer;
 }
+
+img {
+  user-select: none;
+}
