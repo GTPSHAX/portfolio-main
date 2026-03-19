@@ -1,20 +1,18 @@
 "use server";
 
-import { outfit, robotoMono, rubikGlitch, rubikMonoOne } from "@/fonts/google";
+import { outfit, robotoMono } from "@/fonts/google";
 import Opening from "@/components/Opening";
 import MainLayout from "@/components/layout/MainLayout";
 import Image from "next/image";
 import {
   bitsumis,
   blastimoSans,
-  conflict3040,
-  crackedCode,
-  drunkText,
 } from "@/fonts/local";
 import { frontmatter } from "#/content/index.mdx";
 import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import TerminalWindow from "@/components/TerminalWindow";
 
 interface IndexFrontmatter {
   name: string;
@@ -32,7 +30,7 @@ export default async function Home() {
   const indexFrontmatter = frontmatter as IndexFrontmatter;
 
   return (
-    <MainLayout className="relative">
+    <MainLayout className="relative" opening={<Opening />}>
       <section
         id="hero"
         className="bg-accent-foreground text-accent h-screen flex items-center justify-center relative overflow-clip"
@@ -146,58 +144,26 @@ export default async function Home() {
                 />
               </nav>
 
-              {/* Terminal Window */}
-              <div className="absolute bottom-0 right-0 p-6 hidden md:block z-4">
-                <div className="bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden">
-                  {/* Window Header */}
-                  <div className="bg-accent/20 border-b border-accent px-4 py-3 flex items-center justify-between">
-                    <span
-                      className={`${robotoMono.className} text-xs font-semibold text-accent`}
-                    >
-                      terminal
-                    </span>
-                    <div className="flex gap-2">
-                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
-                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
-                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
-                    </div>
-                  </div>
-
-                  {/* Terminal Content */}
-                  <div className="p-4 text-accent text-sm space-y-1 font-light">
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-80`}
-                    >
-                      $ whoami
-                    </p>
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-60`}
-                    >
-                      developer
-                    </p>
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-80 mt-3`}
-                    >
-                      $ pwd
-                    </p>
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-60`}
-                    >
-                      /home/developer/projects
-                    </p>
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-80 mt-3`}
-                    >
-                      $ npm run build
-                    </p>
-                    <p
-                      className={`${robotoMono.className} text-accent opacity-60`}
-                    >
-                      Building... ✓
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <TerminalWindow className="bottom-0 right-0 hidden md:block z-4">
+                <p className={`${robotoMono.className} text-accent opacity-80`}>
+                  $ whoami
+                </p>
+                <p className={`${robotoMono.className} text-accent opacity-60`}>
+                  developer
+                </p>
+                <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                  $ pwd
+                </p>
+                <p className={`${robotoMono.className} text-accent opacity-60`}>
+                  /home/developer/projects
+                </p>
+                <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                  $ npm run build
+                </p>
+                <p className={`${robotoMono.className} text-accent opacity-60`}>
+                  Building... ✓
+                </p>
+              </TerminalWindow>
             </div>
 
             {/* Profile Image */}
