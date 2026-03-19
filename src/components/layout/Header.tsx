@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={cn("sticky top-0 z-50 border-white", className)}>
+    <header className={cn("fixed w-full top-0 z-50 border-white", className)}>
       <Navbar />
     </header>
   )
