@@ -17,8 +17,6 @@ const eslintConfig = defineConfig([
     // Custom ignores:
     "src/components/SplitText.tsx",
     "src/components/GlassSurface.tsx",
-    "src/components/SplitContent.tsx",
-    "src/components/FadeContent.tsx",
   ]),
   {
     plugins: {
