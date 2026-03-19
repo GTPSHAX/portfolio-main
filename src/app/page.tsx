@@ -11,7 +11,7 @@ export default function Home() {
         id="hero"
         className="bg-accent-foreground text-accent h-dvh flex items-center justify-center relative overflow-clip"
       >
-        {/* Background Hero */}
+        {/* Background Hero (mask) */}
         <Image
           src="/images/background-hero.jpg"
           alt="Hero Background"
@@ -22,6 +22,7 @@ export default function Home() {
           draggable={false}
         />
 
+        {/* Big Bold Typography */}
         <div
           className={`absolute bottom-30 ${blastimoSans.className} font-extrabold text-[10rem] md:text-[20rem] 2md:text-[25rem]! opacity-50 uppercase leading-[0.8] text-nowrap`}
         >
@@ -29,6 +30,7 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-6 h-full">
+          {/* Profile Image */}
           <div className="relative w-full h-full">
             <div className="absolute bottom-0 left-0 w-full h-full flex items-end justify-center border border-black">
               <Image
