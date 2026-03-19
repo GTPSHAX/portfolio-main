@@ -45,9 +45,8 @@ export default async function Home() {
           {indexFrontmatter.bigBoldTypography}
         </div>
 
-        {/* Hero Content */}
         <div className="container mx-auto px-6 h-full">
-          {/* Profile Image */}
+          {/* Hero Content */}
           <div className="relative w-full h-full">
             {/* Social Links */}
             <div className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group">
