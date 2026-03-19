@@ -53,7 +53,7 @@ export default async function Home() {
           {/* Hero Content */}
           <div className="relative w-full h-full">
             {/* Social Links */}
-            <nav className="absolute top-10 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300">
+            <nav className="absolute top-1/3 z-3 md:z-auto md:top-0 right-0 p-6 flex flex-col items-center gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
               <div aria-hidden="true" className="h-5 w-1 bg-background group-hover:opacity-70" />
               {indexFrontmatter.socialLinks.map((link, index) => (
                 <Link
