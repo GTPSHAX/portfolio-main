@@ -145,6 +145,45 @@ export default async function Home() {
                   className="h-15 w-1 bg-background group-hover:opacity-70"
                 />
               </nav>
+
+              {/* Terminal Window */}
+              <div className="absolute bottom-0 right-0 p-6 hidden md:block z-4">
+                <div className="bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden">
+                  {/* Window Header */}
+                  <div className="bg-accent/20 border-b border-accent px-4 py-3 flex items-center justify-between">
+                    <span className={`${robotoMono.className} text-xs font-semibold text-accent`}>
+                      terminal
+                    </span>
+                    <div className="flex gap-2">
+                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
+                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
+                      <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" />
+                    </div>
+                  </div>
+
+                  {/* Terminal Content */}
+                  <div className="p-4 text-accent text-sm space-y-1 font-light">
+                    <p className={`${robotoMono.className} text-accent opacity-80`}>
+                      $ whoami
+                    </p>
+                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                      developer
+                    </p>
+                    <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                      $ pwd
+                    </p>
+                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                      /home/developer/projects
+                    </p>
+                    <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
+                      $ npm run build
+                    </p>
+                    <p className={`${robotoMono.className} text-accent opacity-60`}>
+                      Building... ✓
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Profile Image */}
