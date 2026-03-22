@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { robotoMono } from "@/fonts/google";
+import { terminalF4 } from "@/fonts/local";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface MonospaceNavProps {
@@ -21,7 +21,7 @@ export function MonospaceNav({
       className={cn(
         "flex justify-between bg-foreground text-background",
         className,
-        robotoMono.className,
+        terminalF4.className
       )}
       aria-label={ariaLabel}
     >
@@ -45,7 +45,7 @@ export function MonospaceNavBrand({
     <a
       href={href}
       className={cn(
-        "px-4 py-2 text-sm font-mono font-bold",
+        "px-4 py-2 text-sm font-terminal-f4 font-bold",
         isMobile ? "hidden": "block",
         className,
       )}
@@ -80,7 +80,7 @@ export function MonospaceNavItem({
   return (
     <li
       className={cn(
-        "flex items-center justify-center flex-1 text-sm font-mono hover:bg-background hover:text-foreground transition-colors duration-300 min-h-10",
+        "flex items-center justify-center flex-1 text-sm font-terminal-f4 hover:bg-background hover:text-foreground transition-colors duration-300 min-h-10",
         className,
       )}
       aria-label={ariaLabel}
