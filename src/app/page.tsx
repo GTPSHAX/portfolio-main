@@ -148,26 +148,7 @@ export default async function Home() {
                 />
               </nav>
 
-              <TerminalWindow className="bottom-0 right-0 hidden md:block z-4">
-                <p className={`${robotoMono.className} text-accent opacity-80`}>
-                  $ whoami
-                </p>
-                <p className={`${robotoMono.className} text-accent opacity-60`}>
-                  developer
-                </p>
-                <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
-                  $ pwd
-                </p>
-                <p className={`${robotoMono.className} text-accent opacity-60`}>
-                  /home/developer/projects
-                </p>
-                <p className={`${robotoMono.className} text-accent opacity-80 mt-3`}>
-                  $ npm run build
-                </p>
-                <p className={`${robotoMono.className} text-accent opacity-60`}>
-                  Building... ✓
-                </p>
-              </TerminalWindow>
+              <TerminalWindow className="bottom-0 right-0 hidden md:block z-4" />
             </MotionFadeIn>
 
             {/* Profile Image */}
