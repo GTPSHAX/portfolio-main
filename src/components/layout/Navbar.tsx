@@ -32,6 +32,7 @@ const Navbar = async () => {
               href={item.href}
               className="flex-1 text-center"
               aria-label={item.ariaLabel}
+              prefetch={false}
             >
               {item.label}
             </Link>
