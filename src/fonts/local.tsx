@@ -34,3 +34,10 @@ export const bitsumis = localFont({
   weight: "400",
   display: "swap",
 });
+
+export const terminalF4 = localFont({
+  src: "./local/Terminal F4.ttf",
+  variable: "--font-terminal-f4",
+  weight: "400",
+  display: "swap",
+});
