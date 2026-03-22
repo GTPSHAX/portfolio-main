@@ -58,6 +58,7 @@ export default function TerminalWindow({
     <div
       className={cn("absolute", className)}
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+      aria-hidden="true"
     >
       <div className={cn("bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden", terminalF4.className)}>
         {/* Window Header */}
@@ -76,15 +77,15 @@ export default function TerminalWindow({
           <div className="flex gap-2">
             <button
               className="w-3 h-3 rounded-full bg-[#ff5f57] group-hover:bg-[#ff5f57] opacity-80 group-hover:opacity-100 transition-opacity"
-              aria-hidden
+              aria-hidden="true"
             />
             <button
               className="w-3 h-3 rounded-full bg-[#febc2e] group-hover:bg-[#febc2e] opacity-80 group-hover:opacity-100 transition-opacity"
-              aria-hidden
+              aria-hidden="true"
             />
             <button
               className="w-3 h-3 rounded-full bg-[#28c840] group-hover:bg-[#28c840] opacity-80 group-hover:opacity-100 transition-opacity"
-              aria-hidden
+              aria-hidden="true"
             />
           </div>
         </div>
