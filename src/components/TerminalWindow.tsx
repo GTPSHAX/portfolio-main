@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { terminalF4 } from "@/fonts/local";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface TerminalWindowProps {
   className?: string;
@@ -56,10 +56,10 @@ export default function TerminalWindow({
 
   return (
     <div
-      className={clsx("absolute", className)}
+      className={cn("absolute", className)}
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     >
-      <div className={clsx("bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden", terminalF4.className)}>
+      <div className={cn("bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden", terminalF4.className)}>
         {/* Window Header */}
         <div
           className="bg-accent/20 border-b border-accent px-4 py-3 flex items-center justify-between cursor-grab active:cursor-grabbing select-none"
