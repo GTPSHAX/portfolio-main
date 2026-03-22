@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { terminalF4 } from "@/fonts/local";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className={`antialiased ${terminalF4.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
