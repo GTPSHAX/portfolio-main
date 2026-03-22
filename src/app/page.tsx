@@ -4,10 +4,7 @@ import { outfit, robotoMono } from "@/fonts/google";
 import Opening from "@/components/Opening";
 import MainLayout from "@/components/layout/MainLayout";
 import Image from "next/image";
-import {
-  bitsumis,
-  blastimoSans,
-} from "@/fonts/local";
+import { bitsumis, blastimoSans, terminalF4 } from "@/fonts/local";
 import { frontmatter } from "#/content/index.mdx";
 import { getSocialIcon, SocialIconType } from "@/lib/server/utils";
 import Link from "next/link";
@@ -31,7 +28,7 @@ export default async function Home() {
   const indexFrontmatter = frontmatter as IndexFrontmatter;
 
   return (
-    <MainLayout className="relative" opening={<Opening />}>
+    <MainLayout className={`relative ${terminalF4.className}`}>
       <section
         id="hero"
         className="bg-accent-foreground text-accent h-screen flex items-center justify-center relative overflow-clip"
@@ -70,7 +67,7 @@ export default async function Home() {
                     className={`w-2 h-2 animate-pulse ${indexFrontmatter.openToWork ? "bg-green-700" : "bg-red-700"}`}
                   />
                   <span
-                    className={`${robotoMono.className} text-xs md:text-sm font-semibold uppercase tracking-widest`}
+                    className={`font-terminal-f4 text-xs md:text-sm font-semibold uppercase tracking-widest`}
                   >
                     {indexFrontmatter.openToWork
                       ? "Open to Work"
@@ -81,7 +78,7 @@ export default async function Home() {
                 {/* Main Headline */}
                 <div className="flex flex-col mt-3">
                   <p
-                    className={`${outfit.className} text-xl sm:text-2xl md:text-3xl font-light`}
+                    className={`text-xl sm:text-2xl md:text-3xl font-light`}
                   >
                     Hello, I'm
                   </p>
@@ -100,7 +97,7 @@ export default async function Home() {
                         <li
                           key={index}
                           aria-label={role}
-                          className={`${outfit.className} text-[0.9rem] sm:text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
+                          className={`text-[0.9rem] sm:text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
                         >
                           {role}
                         </li>
@@ -113,7 +110,7 @@ export default async function Home() {
               <Button
                 asChild
                 size="lg"
-                className={`${outfit.className} text-base md:text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent border border-accent mt-10`}
+                className={`text-base md:text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent border border-accent mt-10`}
               >
                 <Link href="#projects" scroll>
                   View Projects
