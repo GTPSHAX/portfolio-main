@@ -31,14 +31,14 @@ export default async function Home() {
     <MainLayout className={`relative ${terminalF4.className}`}>
       <section
         id="hero"
-        className="bg-accent-foreground text-accent h-screen flex items-center justify-center relative overflow-clip"
+        className="bg-foreground text-accent h-screen flex items-center justify-center relative overflow-x-clip"
       >
         {/* Background Hero (mask) */}
         <Image
           src="/images/background-hero.jpg"
           alt="Hero Background"
           fill
-          className="object-cover object-center grayscale mix-blend-screen z-1 pointer-events-none"
+          className="object-cover object-center grayscale mix-blend-screen opacity-70 z-1 pointer-events-none"
           priority
           quality={75}
           draggable={false}
@@ -55,7 +55,10 @@ export default async function Home() {
         <div className="container mx-auto px-6 pt-10 h-full">
           {/* Hero Content */}
           <div className="relative w-full h-full flex items-center">
-            <MotionFadeIn delay={3} className="relative z-2 pt-10 flex-1 h-full">
+            <MotionFadeIn
+              delay={3}
+              className="relative z-2 pt-10 flex-1 h-full"
+            >
               {/* Greetings Text Container */}
               <div className="flex flex-col items-start gap-3">
                 {/* Badge */}
@@ -117,7 +120,10 @@ export default async function Home() {
                 </Link>
               </Button>
             </MotionFadeIn>
-            <MotionFadeIn delay={3.15} className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full">
+            <MotionFadeIn
+              delay={3.15}
+              className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full"
+            >
               {/* Social Links */}
               <nav className="absolute bottom-14 lg:bottom-20 z-3 md:z-auto md:top-0 right-0 p-4 lg:p-6 flex flex-col items-center gap-3 lg:gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
                 <div
