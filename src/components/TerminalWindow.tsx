@@ -74,9 +74,18 @@ export default function TerminalWindow({
             terminal
           </span>
           <div className="flex gap-2">
-            <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" aria-hidden />
-            <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" aria-hidden />
-            <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" aria-hidden />
+            <button
+              className="w-3 h-3 rounded-full bg-[#ff5f57] group-hover:bg-[#ff5f57] opacity-80 group-hover:opacity-100 transition-opacity"
+              aria-hidden
+            />
+            <button
+              className="w-3 h-3 rounded-full bg-[#febc2e] group-hover:bg-[#febc2e] opacity-80 group-hover:opacity-100 transition-opacity"
+              aria-hidden
+            />
+            <button
+              className="w-3 h-3 rounded-full bg-[#28c840] group-hover:bg-[#28c840] opacity-80 group-hover:opacity-100 transition-opacity"
+              aria-hidden
+            />
           </div>
         </div>
 
