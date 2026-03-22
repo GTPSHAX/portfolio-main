@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { robotoMono } from "@/fonts/google";
+import { terminalF4 } from "@/fonts/local";
 import clsx from "clsx";
 
 interface TerminalWindowProps {
@@ -18,7 +18,12 @@ export default function TerminalWindow({
   children,
 }: TerminalWindowProps) {
   const [position, setPosition] = useState({ x: initialX, y: initialY });
-  const dragStartRef = useRef<{ x: number; y: number; cursorX: number; cursorY: number } | null>(null);
+  const dragStartRef = useRef<{
+    x: number;
+    y: number;
+    cursorX: number;
+    cursorY: number;
+  } | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -36,7 +41,10 @@ export default function TerminalWindow({
     if (!isDragging || !dragStartRef.current) return;
     const dx = event.clientX - dragStartRef.current.cursorX;
     const dy = event.clientY - dragStartRef.current.cursorY;
-    setPosition({ x: dragStartRef.current.x + dx, y: dragStartRef.current.y + dy });
+    setPosition({
+      x: dragStartRef.current.x + dx,
+      y: dragStartRef.current.y + dy,
+    });
   };
 
   const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -51,7 +59,7 @@ export default function TerminalWindow({
       className={clsx("absolute", className)}
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     >
-      <div className="bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden">
+      <div className={clsx("bg-foreground border border-accent shadow-2xl w-80 md:w-96 lg:w-xl overflow-hidden", terminalF4.className)}>
         {/* Window Header */}
         <div
           className="bg-accent/20 border-b border-accent px-4 py-3 flex items-center justify-between cursor-grab active:cursor-grabbing select-none"
@@ -60,7 +68,11 @@ export default function TerminalWindow({
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
         >
-          <span className={clsx(robotoMono.className, "text-xs font-semibold text-accent")}>terminal</span>
+          <span
+            className="text-xs font-semibold text-accent"
+          >
+            terminal
+          </span>
           <div className="flex gap-2">
             <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" aria-hidden />
             <button className="w-3 h-3 rounded-full bg-accent/60 hover:bg-accent transition-colors" aria-hidden />
@@ -72,12 +84,36 @@ export default function TerminalWindow({
         <div className="p-4 text-accent text-sm space-y-1 font-light select-none">
           {children ?? (
             <>
-              <p className={clsx(robotoMono.className, "text-accent opacity-80")}>$ whoami</p>
-              <p className={clsx(robotoMono.className, "text-accent opacity-60")}>developer</p>
-              <p className={clsx(robotoMono.className, "text-accent opacity-80 mt-3")}>$ pwd</p>
-              <p className={clsx(robotoMono.className, "text-accent opacity-60")}>/home/developer/projects</p>
-              <p className={clsx(robotoMono.className, "text-accent opacity-80 mt-3")}>$ npm run build</p>
-              <p className={clsx(robotoMono.className, "text-accent opacity-60")}>Building... ✓</p>
+              <p
+                className="text-accent opacity-80"
+              >
+                $ whoami
+              </p>
+              <p
+                className="text-accent opacity-60"
+              >
+                developer
+              </p>
+              <p
+                className="text-accent opacity-80 mt-3"
+              >
+                $ pwd
+              </p>
+              <p
+                className="text-accent opacity-60"
+              >
+                /home/developer/projects
+              </p>
+              <p
+                className="text-accent opacity-80 mt-3"
+              >
+                $ npm run build
+              </p>
+              <p
+                className="text-accent opacity-60"
+              >
+                Building... ✓
+              </p>
             </>
           )}
         </div>
