@@ -1,4 +1,88 @@
 ---
-  title: "Building calm, intentional interfaces that stay fast."
-  description: "I'm a passionate web developer with a knack for creating dynamic and responsive web applications. With a strong foundation in both frontend and backend technologies, I thrive on turning complex problems into elegant solutions. My journey in tech has been fueled by curiosity and a relentless drive to learn and grow. When I'm not coding, you can find me exploring the latest trends in technology or contributing to open-source projects."
+  title: "A self-taught developer's two-year journey."
+  description: "I began my coding journey in 2023, building a strong foundation with C++ and command-line applications. Since then, I've transitioned into <b>modern web development</b>, focusing on building scalable applications with the latest frameworks and technologies."
 ---
+import { TbBrandCpp, TbBrandJavascript, TbBrandTypescript, TbBrandGolang, TbBrandRust, TbBrandNodejs, TbBrandNextjs } from "react-icons/tb";
+import { FaJava } from "react-icons/fa";
+import { SiExpress } from "react-icons/si";
+import { BunIcon } from "@/components/icons/simple-icons-bun";
+
+<div className="flex flex-wrap justify-between gap-5">
+  <section
+    id="primary-programming-language"
+    aria-label="Primary Programming Language"
+  >
+    <h3 className="text-xl">Primary Programming Language</h3>
+
+    <ul className="flex flex-wrap gap-3">
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="CPP">
+        <TbBrandCpp className="inline" size={25} />
+        <span>C++</span>
+      </li>
+ 
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="JavaScript">
+        <TbBrandJavascript className="inline" size={25} />
+        <span>JavaScript</span>
+      </li>
+
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="TypeScript">
+        <TbBrandTypescript className="inline" size={25} />
+        <span>TypeScript</span>
+      </li>
+    </ul>
+  </section>
+  
+  <section
+    id="secondary-programming-language"
+    aria-label="Secondary Programming Language"
+  >
+    <h3 className="text-xl">Secondary Programming Language</h3>
+
+    <ul className="flex flex-wrap gap-3">
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="CPP">
+        <FaJava className="inline" size={25} />
+        <span>Java</span>
+      </li>
+ 
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="JavaScript">
+        <TbBrandGolang className="inline" size={25} />
+        <span>Golang</span>
+      </li>
+
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="TypeScript">
+        <TbBrandRust className="inline" size={25} />
+        <span>Rust</span>
+      </li>
+    </ul>
+  </section>
+  
+  <section
+    id="technologies-and-frameworks"
+    aria-label="Technologies and Frameworks"
+  >
+    <h3 className="text-xl">Technologies and Frameworks</h3>
+
+    <ul className="flex flex-wrap gap-3">
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="CPP">
+        <TbBrandNodejs className="inline" size={25} />
+        <span>Node.js</span>
+      </li>
+ 
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="JavaScript">
+        <BunIcon className="inline" size={25} />
+        <span>Bun.js</span>
+      </li>
+
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="TypeScript">
+        <SiExpress className="inline" size={25} />
+        <span>Express</span>
+      </li>
+
+      <li className="px-3 py-1 flex items-center gap-2 border bg-foreground/60 border-accent/80" aria-label="TypeScript">
+        <TbBrandNextjs className="inline" size={25} />
+        <span>Next.js</span>
+      </li>
+    </ul>
+  </section>
+</div>
+
