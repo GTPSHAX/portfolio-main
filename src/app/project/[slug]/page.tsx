@@ -6,7 +6,6 @@ import path from "node:path";
 import MainLayout from "@/components/layout/MainLayout";
 import { terminalF4 } from "@/fonts/local";
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 
 interface ProjectFrontmatter {
@@ -39,12 +38,12 @@ async function loadProjectModule(slug: string) {
 
   try {
     const file = path.join("../../../../content/projects", `${slug}.mdx`);
-    
+
     return (await import(file)) as {
       default: React.ComponentType;
       frontmatter: ProjectFrontmatter;
     };
-  } catch (error) { 
+  } catch (error) {
     const message = error instanceof Error ? error.message : "";
 
     if (message.includes("Cannot find module") || message.includes("not found")) {
