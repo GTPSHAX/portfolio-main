@@ -4,6 +4,7 @@ import Image from "next/image";
 import { frontmatter } from "#/content/index.mdx";
 import { bitsumis, blastimoSans } from "@/fonts/local";
 import MotionFadeIn from "@/components/MotionFadeIn";
+import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { getSocialIcon } from "@/lib/server/utils";
@@ -12,7 +13,7 @@ import { HeroSectionFrontmatter } from "@/types/content";
 
 export default async function HeroSection() {
   const indexFrontmatter = frontmatter as HeroSectionFrontmatter;
-  
+
   return (
     <section
       id="hero"
@@ -40,68 +41,81 @@ export default async function HeroSection() {
       <div className="container mx-auto px-6 pt-10 h-full">
         {/* Hero Content */}
         <div className="relative w-full h-full flex items-center">
-          <MotionFadeIn delay={3} className="relative z-2 pt-10 flex-1 h-full">
-            {/* Greetings Text Container */}
-            <div className="flex flex-col items-start gap-3">
+          <div className="relative z-2 pt-10 flex-1 h-full flex flex-col">
+            <StaggerChildren
+              delay={3.5}
+              staggerDelay={0.15}
+              className="flex flex-col items-start gap-3"
+            >
               {/* Badge */}
-              <div
-                className={`flex items-center gap-3 px-3 py-1.5 border border-accent backdrop-blur-md ${indexFrontmatter.openToWork ? "bg-green-500/50" : "bg-red-500/50"}`}
-              >
+              <StaggerItem direction="down">
                 <div
-                  aria-hidden="true"
-                  className={`w-2 h-2 animate-pulse ${indexFrontmatter.openToWork ? "bg-green-700" : "bg-red-700"}`}
-                />
-                <span
-                  className={`font-terminal-f4 text-xs md:text-sm font-semibold uppercase tracking-widest`}
+                  className={`flex items-center gap-3 px-3 py-1.5 border border-accent backdrop-blur-md ${indexFrontmatter.openToWork ? "bg-green-500/50" : "bg-red-500/50"}`}
                 >
-                  {indexFrontmatter.openToWork
-                    ? "Open to Work"
-                    : "Not Open to Work"}
-                </span>
-              </div>
+                  <div
+                    aria-hidden="true"
+                    className={`w-2 h-2 animate-pulse ${indexFrontmatter.openToWork ? "bg-green-700" : "bg-red-700"}`}
+                  />
+                  <span
+                    className={`font-terminal-f4 text-xs md:text-sm font-semibold uppercase tracking-widest`}
+                  >
+                    {indexFrontmatter.openToWork
+                      ? "Open to Work"
+                      : "Not Open to Work"}
+                  </span>
+                </div>
+              </StaggerItem>
 
               {/* Main Headline */}
               <div className="flex flex-col mt-3">
-                <p className={`text-xl sm:text-2xl md:text-3xl font-light`}>
-                  Hello, I&apos;m
-                </p>
-                <h1
-                  className={`${bitsumis.className} font-semibold text-[3rem] sm:text-[3.4rem] md:text-6xl lg:text-[5rem] leading-[0.7]`}
-                  dangerouslySetInnerHTML={{ __html: indexFrontmatter.name }}
-                />
+                <StaggerItem>
+                  <p className={`text-xl sm:text-2xl md:text-3xl font-light`}>
+                    Hello, I&apos;m
+                  </p>
+                </StaggerItem>
+                <StaggerItem>
+                  <h1
+                    className={`${bitsumis.className} font-semibold text-[3rem] sm:text-[3.4rem] md:text-6xl lg:text-[5rem] leading-[0.7]`}
+                    dangerouslySetInnerHTML={{ __html: indexFrontmatter.name }}
+                  />
+                </StaggerItem>
 
                 {/* sub-text - roles */}
-                <ul
-                  aria-label="My Roles"
-                  className="flex flex-wrap gap-3 mt-2 divide-accent divide-x-2 md:max-w-[40vw]"
-                >
-                  {indexFrontmatter.roles &&
-                    indexFrontmatter.roles.map((role, index) => (
-                      <li
-                        key={index}
-                        aria-label={role}
-                        className={`text-[0.9rem] sm:text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
-                      >
-                        {role}
-                      </li>
-                    ))}
-                </ul>
+                <StaggerItem>
+                  <ul
+                    aria-label="My Roles"
+                    className="flex flex-wrap gap-3 mt-2 divide-accent divide-x-2 md:max-w-[40vw]"
+                  >
+                    {indexFrontmatter.roles &&
+                      indexFrontmatter.roles.map((role, index) => (
+                        <li
+                          key={index}
+                          aria-label={role}
+                          className={`text-[0.9rem] sm:text-md md:text-lg lg:text-[1.5rem] mt-2 opacity-80 tracking-wide pr-3`}
+                        >
+                          {role}
+                        </li>
+                      ))}
+                  </ul>
+                </StaggerItem>
               </div>
-            </div>
 
-            {/* CTA Button */}
-            <Button
-              asChild
-              size="lg"
-              className={`text-base md:text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent border border-accent mt-10`}
-            >
-              <Link href="#projects" scroll>
-                View Projects
-              </Link>
-            </Button>
-          </MotionFadeIn>
+              {/* CTA Button */}
+              <StaggerItem direction="up" className="mt-6">
+                <Button
+                  asChild
+                  size="lg"
+                  className={`text-base md:text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent border border-accent`}
+                >
+                  <Link href="#projects" scroll>
+                    View Projects
+                  </Link>
+                </Button>
+              </StaggerItem>
+            </StaggerChildren>
+          </div>
           <MotionFadeIn
-            delay={3.15}
+            delay={4}
             className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full"
           >
             {/* Social Links */}
