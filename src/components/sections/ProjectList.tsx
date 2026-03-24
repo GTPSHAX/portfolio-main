@@ -73,7 +73,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
               <div className="flex items-center gap-3 pt-2 mt-auto">
                 <Link
                   href={`/project/${project.slug}`}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   prefetch
