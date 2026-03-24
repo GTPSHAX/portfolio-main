@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ProjectFrontmatter } from "@/types/content";
 import Link from "next/link";
+import * as motion from "motion/react-client";
 
 interface ProjectListProps {
   projects: ProjectFrontmatter[] | null;
@@ -19,16 +20,23 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
-      <div className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects && projects.length > 0 ? (
-          visibleProjects?.map((project) => (
-            <div
+          visibleProjects?.map((project, index) => (
+            <motion.div
               key={project.slug}
-              className="group relative flex flex-col gap-4 p-5 rounded-lg border border-accent/20 bg-foreground/40 backdrop-blur-sm hover:border-accent/60 hover:shadow-[0_0_15px_-3px_rgba(var(--accent),0.2)] transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.4,
+                delay: Math.min((index % INITIAL_VISIBLE) * 0.1, 0.6),
+              }}
+              className="group relative flex flex-col gap-4 p-5 rounded-lg border border-accent/20 bg-foreground/40 backdrop-blur-sm hover:border-accent/60 hover:shadow-[0_0_15px_-3px_rgba(var(--accent),0.2)] transition-[border-color,box-shadow] duration-300"
             >
               {/* Thumbnail */}
               {project.thumbnail && (
-                <div className="relative w-full h-48 overflow-hidden rounded-md border border-accent/10">
+                <div className="relative w-full h-48 overflow-hidden rounded-md border border-accent/10 grayscale group-hover:grayscale-0 transition-colors duration-300">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}
@@ -95,7 +103,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   </Link>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))
         ) : (
           <p className="text-accent/50 font-mono p-6">
