@@ -23,26 +23,26 @@ export default function Opening() {
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ delay: 3, duration: 0.8 }}
+      initial={{ y: 0 }}
+      animate={{ y: "-100%" }}
+      transition={{ delay: 3.2, duration: 1, ease: [0.76, 0, 0.24, 1] }}
       onAnimationComplete={() => setHidden(true)}
-      className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-999"
+      className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-foreground z-[9999] text-accent"
     >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
+        initial={{ opacity: 1 }}
+        animate={{ y: -100, opacity: 0 }}
+        transition={{ delay: 2.8, duration: 0.5 }}
       >
         <SplitText
           text={`"Urip iku murup"`}
           className="text-4xl sm:text-5xl md:text-7xl font-semibold text-center"
           delay={50}
-          duration={2}
-          ease="bounce.out"
+          duration={1.2}
+          ease="back.out"
           splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
+          from={{ opacity: 0, y: 50, scale: 1.2 }}
+          to={{ opacity: 1, y: 0, scale: 1 }}
           textAlign="center"
         />
       </motion.div>
