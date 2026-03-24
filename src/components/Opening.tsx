@@ -32,7 +32,7 @@ export default function Opening() {
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ y: -100, opacity: 0 }}
-        transition={{ delay: 2.8, duration: 0.5 }}
+        transition={{ delay: 2.8, duration: 1 }}
       >
         <SplitText
           text={`"Urip iku murup"`}
