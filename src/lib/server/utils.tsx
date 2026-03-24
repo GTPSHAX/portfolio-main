@@ -37,7 +37,7 @@ export async function getProject(slug: string): Promise<{
 
 export async function getAllProjects(): Promise<ProjectFrontmatter[] | null> {
   // Temp var
-  let projectFrontmatters: ProjectFrontmatter[] = [];
+  const projectFrontmatters: ProjectFrontmatter[] = [];
 
   // Read content/projects/* files
   const projectsDir = path.join(process.cwd(), "content/projects/");
