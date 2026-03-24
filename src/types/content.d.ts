@@ -18,3 +18,13 @@ export interface AboutSectionFrontmatter {
   title: string;
   description: string;
 }
+
+export interface ProjectFrontmatter {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  url?: string;
+  repository?: string;
+  thumbnail?: string;
+}
