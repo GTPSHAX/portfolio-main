@@ -18,10 +18,6 @@ export default async function Home() {
     >
       <div className="fixed top-0 left-0 w-full h-full z-100 pointer-events-none">
         <Noise
-          patternSize={250}
-          patternScaleX={2}
-          patternScaleY={2}
-          patternRefreshInterval={2}
           patternAlpha={30}
         />
       </div>
