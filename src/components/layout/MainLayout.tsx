@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import React from "react";
 import { cn } from "@/lib/utils";
 
@@ -8,15 +9,19 @@ interface MainLayoutProps {
   opening?: React.ReactNode;
 }
 
-export default function MainLayout({ children, opening, className }: MainLayoutProps) {
+export default function MainLayout({
+  children,
+  opening,
+  className,
+}: MainLayoutProps) {
   return (
     <>
-      { opening && opening }
+      {opening && opening}
       <Header />
 
-      <main className={className}>
-        {children}
-      </main>
+      <main className={className}>{children}</main>
+
+      <Footer />
     </>
   );
 }
