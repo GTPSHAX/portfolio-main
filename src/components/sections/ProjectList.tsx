@@ -18,54 +18,57 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
-      <div className="grid gap-5 p-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {projects && projects.length > 0 ? (
           visibleProjects?.map((project) => (
             <div
               key={project.slug}
-              className="group px-4 py-4 flex flex-col gap-4 border border-accent/50 bg-background/20 hover:-translate-y-1 transition-all duration-300 backdrop-blur-md"
+              className="group relative flex flex-col gap-4 p-5 rounded-lg border border-accent/20 bg-foreground/40 backdrop-blur-sm hover:border-accent/60 hover:shadow-[0_0_15px_-3px_rgba(var(--accent),0.2)] transition-all duration-300"
             >
               {/* Thumbnail */}
               {project.thumbnail && (
-                <div className="relative w-full h-52 overflow-hidden ring-1 ring-accent/20">
+                <div className="relative w-full h-48 overflow-hidden rounded-md border border-accent/10">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-foreground/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
               )}
 
               {/* Project Info */}
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-accent">
-                  {project.title}
-                </h3>
-                <p className="text-background/60 text-sm leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
+              <div className="flex flex-col gap-3 flex-grow">
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight text-accent group-hover:text-accent/80 transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent/50">
+                      {new Date(project.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                      })}
+                    </span>
+                    <div className="h-px flex-grow bg-accent/20 border-t border-dashed border-accent/20" />
+                  </div>
+                </div>
 
-                {/* Date */}
-                <p className="text-xs text-background/50 uppercase tracking-wide">
-                  {new Date(project.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
+                <p className="text-accent/70 text-sm leading-relaxed line-clamp-3 font-light">
+                  {project.description}
                 </p>
               </div>
 
               {/* Links */}
-              <div className="flex gap-2 flex-wrap pt-1">
+              <div className="flex items-center gap-3 pt-2 mt-auto">
                 <a
                   href={`/project/${project.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm px-3 py-1.5 rounded-full border border-accent/60 text-accent hover:bg-accent hover:text-foreground transition-colors"
+                  className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                 >
-                  Read more
+                  &gt; Read_More
                 </a>
 
                 {project.url && (
@@ -73,39 +76,46 @@ export default function ProjectList({ projects }: ProjectListProps) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs md:text-sm px-3 py-1.5 rounded-full border border-accent/40 text-accent/90 hover:bg-accent/90 hover:text-foreground transition-colors"
+                    className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
-                    View Project
+                    &gt; Demo
                   </a>
                 )}
+
                 {project.repository && (
                   <a
                     href={project.repository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs md:text-sm px-3 py-1.5 rounded-full border border-accent/40 text-accent/90 hover:bg-accent/90 hover:text-foreground transition-colors"
+                    className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
-                    Repository
+                    &gt; Source
                   </a>
                 )}
               </div>
             </div>
           ))
         ) : (
-          <p className="text-foreground/60">No projects available.</p>
+          <p className="text-accent/50 font-mono p-6">
+            _ No projects found in directory.
+          </p>
         )}
       </div>
 
       {/* View More Button */}
       {hasMore && (
-        <div className="flex justify-center p-6">
+        <div className="flex justify-center p-8">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="px-6 py-2.5 rounded-full border border-accent/60 text-accent hover:bg-accent hover:text-foreground transition-colors text-sm md:text-base font-medium"
+            className="group relative px-8 py-3 bg-transparent overflow-hidden"
           >
-            {isExpanded
-              ? "Show less"
-              : `View more projects (${(projects?.length || 0) - INITIAL_VISIBLE})`}
+            <div className="absolute inset-0 border border-accent/40 group-hover:border-accent transition-colors duration-300" />
+            <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative font-mono text-sm text-accent group-hover:text-accent font-medium tracking-wider">
+              {isExpanded
+                ? "[-] COLLAPSE_VIEW"
+                : `[+] LOAD_MORE (${(projects?.length || 0) - INITIAL_VISIBLE})`}
+            </span>
           </button>
         </div>
       )}

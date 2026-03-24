@@ -5,6 +5,7 @@ import MDXContent, { frontmatter } from "#/content/about.mdx";
 import { AboutSectionFrontmatter } from "@/types/content";
 import { GoGear } from "react-icons/go";
 import GeometricBackground from "@/components/background/GeometricBackground";
+import MotionFadeIn from "@/components/MotionFadeIn";
 
 export default async function AboutSection() {
   const aboutFrontmatter = frontmatter as AboutSectionFrontmatter;
@@ -12,7 +13,7 @@ export default async function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-foreground/80 text-accent min-h-screen flex items-center justify-center relative overflow-x-clip"
+      className="bg-foreground text-accent min-h-screen flex items-center justify-center relative overflow-clip"
     >
       {/* Background Gradient & Geometric Elements */}
       <GeometricBackground />
@@ -24,7 +25,10 @@ export default async function AboutSection() {
 
       <div className="container z-1 grid w-full h-full grid-cols-1 lg:grid-cols-2 py-10">
         {/* About Content */}
-        <div className="flex flex-col gap-5 p-6">
+        <MotionFadeIn
+          delay={0.2}
+          className="flex flex-col gap-5 p-6 h-fit lg:sticky lg:top-24"
+        >
           <div className="flex items-center justify-center gap-2">
             <span className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit">
               # [01] / About
@@ -42,10 +46,10 @@ export default async function AboutSection() {
               __html: aboutFrontmatter.description,
             }}
           />
-        </div>
+        </MotionFadeIn>
 
         {/* Skills Content */}
-        <div className="flex flex-col gap-5 p-6">
+        <MotionFadeIn delay={0.4} className="flex flex-col gap-5 p-6 h-full">
           <div className="flex items-center justify-center gap-2">
             <span className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit">
               # [02] / Skills
@@ -54,7 +58,7 @@ export default async function AboutSection() {
           </div>
 
           <div className="">{MDXContent({})}</div>
-        </div>
+        </MotionFadeIn>
       </div>
     </section>
   );

@@ -3,7 +3,6 @@
 import { bitsumis } from "@/fonts/local";
 import { getAllProjects } from "@/lib/server/utils";
 import ProjectList from "./ProjectList";
-import { GoProjectTemplate } from "react-icons/go";
 
 export default async function ProjectSection() {
   const projects = await getAllProjects();
