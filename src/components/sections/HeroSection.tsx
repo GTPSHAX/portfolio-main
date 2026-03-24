@@ -63,7 +63,7 @@ export default async function HeroSection() {
               {/* Main Headline */}
               <div className="flex flex-col mt-3">
                 <p className={`text-xl sm:text-2xl md:text-3xl font-light`}>
-                  Hello, I'm
+                  Hello, I&apos;m
                 </p>
                 <h1
                   className={`${bitsumis.className} font-semibold text-[3rem] sm:text-[3.4rem] md:text-6xl lg:text-[5rem] leading-[0.7]`}

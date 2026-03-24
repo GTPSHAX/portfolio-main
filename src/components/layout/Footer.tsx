@@ -34,7 +34,7 @@ export default function Footer({ className }: FooterProps) {
               href="mailto:contact@example.com"
               className="group flex flex-wrap items-baseline hover:text-accent/80 transition-colors duration-300 cursor-pointer"
             >
-              Let's Talk
+              Let&apos;s Talk
               <span className="inline-block w-3 h-3 md:w-6 md:h-6 lg:w-10 lg:h-10 bg-accent ml-2 md:ml-4 lg:ml-8 animate-pulse mb-2 md:mb-4 lg:mb-8" />
             </Link>
           </h2>
