@@ -29,7 +29,7 @@ export default function GeometricBackground({
     <div className="absolute inset-0 z-0 pointer-events-none">
       {/* Gradient Background */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo}`}
+        className={`absolute inset-0 bg-linear-to-br ${gradientFrom} ${gradientVia} ${gradientTo}`}
       />
 
       {/* Geometric Circle - Top Right */}
