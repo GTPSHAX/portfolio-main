@@ -1,11 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SplitText from "./SplitText";
 import * as motion from "motion/react-client";
 
 export default function Opening() {
   const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    if (hidden) {
+      document.body.style.overflow = "";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [hidden]);
 
   if (hidden) return null;
 
