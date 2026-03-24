@@ -28,7 +28,7 @@ export default function Footer({ className }: FooterProps) {
         {/* Big CTA */}
         <div className="relative z-10">
           <h2
-            className={`${bitsumis.className} text-[4rem] sm:text-[5rem] md:text-[8rem] lg:text-[11rem] leading-[0.8] tracking-tight`}
+            className={`${bitsumis.className} text-[2rem] sm:text-[3rem] md:text-[7rem] lg:text-[9rem] leading-[0.8] tracking-tight`}
           >
             <Link
               href="mailto:contact@example.com"
