@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { bitsumis } from "@/fonts/local";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 interface FooterProps {
   className?: string;
@@ -18,7 +19,7 @@ export default function Footer({ className }: FooterProps) {
       <div className="container mx-auto px-6 flex flex-col gap-10">
         {/* Terminal Command Line */}
         <div className="flex items-center gap-2 text-accent/50 font-mono text-sm md:text-base mb-2">
-          <span className="text-green-500">➜</span>
+          <FaArrowRightLong className="text-green-500" />
           <span className="text-blue-500">~</span>
           <span className="text-accent/70">./init_contact.sh</span>
         </div>
