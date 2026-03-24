@@ -7,6 +7,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { terminalF4 } from "@/fonts/local";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 interface ProjectFrontmatter {
   title: string;
@@ -93,24 +94,24 @@ export default async function ProjectPage({
           <div className="flex flex-wrap gap-3 text-sm text-foreground/70">
             {frontmatter.date ? <span>{frontmatter.date}</span> : null}
             {frontmatter.url ? (
-              <a
+              <Link
                 href={frontmatter.url}
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-4"
               >
                 Live site
-              </a>
+              </Link>
             ) : null}
             {frontmatter.repository ? (
-              <a
+              <Link
                 href={frontmatter.repository}
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-4"
               >
                 Repository
-              </a>
+              </Link>
             ) : null}
           </div>
         </header>

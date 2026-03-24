@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { terminalF4 } from "@/fonts/local";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Link from "next/link";
 
 interface MonospaceNavProps {
   className?: string;
@@ -42,7 +43,7 @@ export function MonospaceNavBrand({
   const isMobile = useIsMobile();
 
   return (
-    <a
+    <Link
       href={href}
       className={cn(
         "px-4 py-2 text-sm font-terminal-f4 font-bold",
@@ -52,7 +53,7 @@ export function MonospaceNavBrand({
       aria-label={ariaLabel}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 

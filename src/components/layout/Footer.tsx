@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { bitsumis } from "@/fonts/local";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Link from "next/link";
 
 interface FooterProps {
   className?: string;
@@ -29,13 +30,13 @@ export default function Footer({ className }: FooterProps) {
           <h2
             className={`${bitsumis.className} text-[4rem] sm:text-[5rem] md:text-[8rem] lg:text-[11rem] leading-[0.8] tracking-tight`}
           >
-            <a
+            <Link
               href="mailto:contact@example.com"
               className="group flex flex-wrap items-baseline hover:text-accent/80 transition-colors duration-300 cursor-pointer"
             >
               Let's Talk
               <span className="inline-block w-3 h-3 md:w-6 md:h-6 lg:w-10 lg:h-10 bg-accent ml-2 md:ml-4 lg:ml-8 animate-pulse mb-2 md:mb-4 lg:mb-8" />
-            </a>
+            </Link>
           </h2>
         </div>
 
@@ -47,24 +48,24 @@ export default function Footer({ className }: FooterProps) {
               Directory
             </span>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm md:text-base text-accent/80">
-              <a
+              <Link
                 href="#hero"
                 className="hover:text-accent transition-colors hover:underline decoration-dashed underline-offset-4"
               >
                 /root
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
                 className="hover:text-accent transition-colors hover:underline decoration-dashed underline-offset-4"
               >
                 /about
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#projects"
                 className="hover:text-accent transition-colors hover:underline decoration-dashed underline-offset-4"
               >
                 /projects
-              </a>
+              </Link>
             </nav>
           </div>
 

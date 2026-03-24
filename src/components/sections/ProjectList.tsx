@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ProjectFrontmatter } from "@/types/content";
+import Link from "next/link";
 
 interface ProjectListProps {
   projects: ProjectFrontmatter[] | null;
@@ -62,35 +63,36 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
               {/* Links */}
               <div className="flex items-center gap-3 pt-2 mt-auto">
-                <a
+                <Link
                   href={`/project/${project.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
+                  prefetch
                 >
                   &gt; Read_More
-                </a>
+                </Link>
 
                 {project.url && (
-                  <a
+                  <Link
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
                     &gt; Demo
-                  </a>
+                  </Link>
                 )}
 
                 {project.repository && (
-                  <a
+                  <Link
                     href={project.repository}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
                     &gt; Source
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>
