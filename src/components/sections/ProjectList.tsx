@@ -41,6 +41,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                     src={project.thumbnail}
                     alt={project.title}
                     fill
+                    quality={75}
                     className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-300" />
