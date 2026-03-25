@@ -1,6 +1,7 @@
 "use server";
 
 import MainLayout from "@/components/layout/MainLayout";
+import { Metadata } from "next";
 import { terminalF4, bitsumis } from "@/fonts/local";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -19,6 +20,47 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProject(slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  const { title, description } = project.frontmatter;
+  const ogImage = `/og?slug=${slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function ProjectPage({
