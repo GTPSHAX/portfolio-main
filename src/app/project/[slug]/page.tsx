@@ -171,6 +171,7 @@ export default async function ProjectPage({
                     src={frontmatter.thumbnail}
                     alt={frontmatter.title}
                     fill
+                    quality={75}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority
                   />

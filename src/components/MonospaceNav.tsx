@@ -51,6 +51,7 @@ export function MonospaceNavBrand({
         className,
       )}
       aria-label={ariaLabel}
+      prefetch
     >
       {children}
     </Link>
