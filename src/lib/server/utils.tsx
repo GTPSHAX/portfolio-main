@@ -2,73 +2,83 @@
 
 import path from "node:path";
 import { readdir } from "node:fs/promises";
-
+import { existsSync } from "node:fs";
+import { cwd } from "node:process";
 import { JSX } from "react";
 import { GrLinkedin, GrGithub } from "react-icons/gr";
 import { BsTwitterX } from "react-icons/bs";
-import { SocialIconType } from "@/types/content";
-import { ProjectFrontmatter } from "@/types/content";
-import { existsSync } from "node:fs";
-import { cwd } from "node:process";
+import { SocialIconType, ProjectFrontmatter } from "@/types/content";
 
-export async function getProject(slug: string): Promise<{
+interface MdxModule {
   default: React.ComponentType;
   frontmatter: ProjectFrontmatter;
-} | null> {
-  const projectsDir = "../../../content/projects/";
+}
 
-  // Check if file is exists with .md or .mdx ext
-  let extFile = path.extname(slug);
-  if (extFile === "") extFile = ".mdx";
+export async function getProject(slug: string): Promise<MdxModule | null> {
+  const projectsDir = path.join(cwd(), "content/projects");
+  const cleanSlug = slug.replace(/\.mdx?$/, "");
 
-  if (!existsSync(path.join(cwd(), "content/projects/", slug + extFile))) {
-    extFile = ".md";
-    if (!existsSync(path.join(cwd(), "content/projects/", slug + extFile)))
+  // Determine extension
+  let extension = ".mdx";
+  if (!existsSync(path.join(projectsDir, `${cleanSlug}.mdx`))) {
+    if (existsSync(path.join(projectsDir, `${cleanSlug}.md`))) {
+      extension = ".md";
+    } else {
       return null;
+    }
   }
 
-  return (
-    ((await import(projectsDir + slug + extFile)) as {
-      default: React.ComponentType;
-      frontmatter: ProjectFrontmatter;
-    }) || null
-  );
+  try {
+    const res = (await import(
+      `../../../content/projects/${cleanSlug}${extension}`
+    )) as MdxModule;
+
+    // Ensure slug is populated in frontmatter
+    if (res.frontmatter && !res.frontmatter.slug) {
+      res.frontmatter.slug = cleanSlug;
+    }
+
+    return res;
+  } catch (error) {
+    console.error(`Error loading project ${cleanSlug}:`, error);
+    return null;
+  }
 }
 
 export async function getAllProjects(): Promise<ProjectFrontmatter[] | null> {
-  // Temp var
-  const projectFrontmatters: ProjectFrontmatter[] = [];
+  const projectsDir = path.join(cwd(), "content/projects");
 
-  // Read content/projects/* files
-  const projectsDir = path.join(process.cwd(), "content/projects/");
-  const projectFiles = await readdir(projectsDir);
-
-  console.log(JSON.stringify(projectFiles));
-  // Get frontmatter each file
-  for (let i = projectFiles.length; i > 0; i--) {
-    const projectFile = projectFiles[i - 1];
-
-    // Continue if file ext is not md or mdx
-    const extFile = path.extname(projectFile);
-    console.log(extFile);
-    if (extFile !== ".md" && extFile !== ".mdx") continue;
-
-    const projectFrontmatter = await getProject(projectFile.split(".")[0]);
-    if (!projectFrontmatter) continue;
-
-    projectFrontmatters.push(projectFrontmatter.frontmatter);
+  if (!existsSync(projectsDir)) {
+    return [];
   }
 
-  console.log(JSON.stringify(projectFrontmatters));
+  try {
+    const files = await readdir(projectsDir);
 
-  // Sort by date (newest)
-  projectFrontmatters.sort((a, b) => {
-    const dateA = new Date(a.date).getTime();
-    const dateB = new Date(b.date).getTime();
-    return dateB - dateA;
-  });
+    const projects = await Promise.all(
+      files
+        .filter((file) => /\.(mdx?)$/.test(file))
+        .map(async (file) => {
+          const slug = file.replace(/\.mdx?$/, "");
+          const project = await getProject(slug);
+          return project?.frontmatter || null;
+        }),
+    );
 
-  return projectFrontmatters || null;
+    const validProjects = projects.filter(
+      (p): p is ProjectFrontmatter => p !== null,
+    );
+
+    // Sort by date (newest)
+    validProjects.sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
+    return validProjects;
+  } catch (error) {
+    console.error("Failed to fetch projects", error);
+    return null;
+  }
 }
 
 export async function getSocialIcon(
