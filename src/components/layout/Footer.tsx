@@ -2,10 +2,14 @@ import { cn } from "@/lib/utils";
 import { bitsumis } from "@/fonts/local";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
+import { frontmatter } from "#/content/index.mdx";
+import type { HeroSectionFrontmatter } from "@/types/content";
 
 interface FooterProps {
   className?: string;
 }
+
+const indexFrontmatter = frontmatter as HeroSectionFrontmatter;
 
 export default function Footer({ className }: FooterProps) {
   const currentYear = new Date().getFullYear();
@@ -31,7 +35,7 @@ export default function Footer({ className }: FooterProps) {
             className={`${bitsumis.className} text-[2rem] sm:text-[3rem] md:text-[7rem] lg:text-[9rem] leading-[0.8] tracking-tight`}
           >
             <Link
-              href="mailto:contact@example.com"
+              href={`mailto:${indexFrontmatter.email}`}
               className="group flex flex-wrap items-baseline hover:text-accent/80 transition-colors duration-300 cursor-pointer"
             >
               Let&apos;s Talk
