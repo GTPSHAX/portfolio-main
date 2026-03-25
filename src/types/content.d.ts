@@ -11,6 +11,7 @@ export interface HeroSectionFrontmatter {
   bigBoldTypography: string;
   socialLinks: SocialLinkFrontmatter[];
   openToWork: boolean;
+  email: string;
   roles: string[];
 }
 
