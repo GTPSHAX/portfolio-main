@@ -19,6 +19,7 @@ export default async function AboutSection() {
       <GeometricBackground />
 
       <GoGear
+        aria-hidden="true"
         size={500}
         className="absolute z-0 -right-[250px] -bottom-[250px] opacity-15 animate-spin [animation-duration:20s]"
       />
@@ -32,7 +33,10 @@ export default async function AboutSection() {
         >
           <StaggerItem direction="down">
             <div className="flex items-center justify-center gap-2">
-              <span className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit">
+              <span
+                aria-hidden="true"
+                className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit"
+              >
                 # [01] / About
               </span>
               <div className="w-full border border-accent/70 border-dashed" />
@@ -64,7 +68,10 @@ export default async function AboutSection() {
         >
           <StaggerItem direction="down">
             <div className="flex items-center justify-center gap-2">
-              <span className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit">
+              <span
+                aria-hidden="true"
+                className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit"
+              >
                 # [02] / Skills
               </span>
               <div className="w-full border border-accent/70 border-dashed" />

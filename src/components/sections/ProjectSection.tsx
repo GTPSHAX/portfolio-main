@@ -21,7 +21,10 @@ export default async function ProjectSection() {
         >
           <StaggerItem direction="down">
             <div className="flex items-center justify-center gap-2">
-              <span className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit">
+              <span
+                aria-hidden="true"
+                className="uppercase tracking-widest text-nowrap text-xs md:text-sm text-accent/70 hover:underline hover:decoration-accent/50 cursor-default w-fit"
+              >
                 # [03] / Projects
               </span>
               <div className="w-full border border-accent/70 border-dashed" />

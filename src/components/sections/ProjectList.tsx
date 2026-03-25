@@ -20,10 +20,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
-      <div className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects && projects.length > 0 ? (
           visibleProjects?.map((project, index) => (
-            <motion.div
+            <motion.li
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
               )}
 
               {/* Project Info */}
-              <div className="flex flex-col gap-3 flex-grow">
+              <div className="flex flex-col gap-3 grow">
                 <div>
                   <h3 className="text-xl font-bold tracking-tight text-accent group-hover:text-accent/80 transition-colors">
                     {project.title}
@@ -60,7 +60,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                         month: "long",
                       })}
                     </span>
-                    <div className="h-px flex-grow bg-accent/20 border-t border-dashed border-accent/20" />
+                    <div className="h-px grow bg-accent/20 border-t border-dashed border-accent/20" />
                   </div>
                 </div>
 
@@ -74,10 +74,11 @@ export default function ProjectList({ projects }: ProjectListProps) {
                 <Link
                   href={`/project/${project.slug}`}
                   rel="noopener noreferrer"
+                  aria-label={`Read more about ${project.title}`}
                   className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   prefetch
                 >
-                  &gt; Read_More
+                  <span aria-hidden="true">&gt; </span>Read_More
                 </Link>
 
                 {project.url && (
@@ -85,9 +86,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View live demo of ${project.title}`}
                     className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
-                    &gt; Demo
+                    <span aria-hidden="true">&gt; </span>Demo
                   </Link>
                 )}
 
@@ -96,20 +98,21 @@ export default function ProjectList({ projects }: ProjectListProps) {
                     href={project.repository}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View source code for ${project.title}`}
                     className="text-xs font-mono px-3 py-1.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent/10 transition-colors"
                   >
-                    &gt; Source
+                    <span aria-hidden="true">&gt; </span>Source
                   </Link>
                 )}
               </div>
-            </motion.div>
+            </motion.li>
           ))
         ) : (
           <p className="text-accent/50 font-mono p-6">
             _ No projects found in directory.
           </p>
         )}
-      </div>
+      </ul>
 
       {/* View More Button */}
       {hasMore && (

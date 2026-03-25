@@ -119,7 +119,10 @@ export default async function HeroSection() {
             className="relative pt-10 w-1/2 lg:w-2/5 2xl:w-1/2 h-full"
           >
             {/* Social Links */}
-            <nav className="absolute bottom-14 lg:bottom-20 z-3 md:z-auto md:top-0 right-0 p-4 lg:p-6 flex flex-col items-center gap-3 lg:gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent">
+            <nav
+              aria-label="Social media links"
+              className="absolute bottom-14 lg:bottom-20 z-3 md:z-auto md:top-0 right-0 p-4 lg:p-6 flex flex-col items-center gap-3 lg:gap-4 pointer-events-auto group transition-opacity duration-300 border border-accent bg-foreground md:border-none md:bg-transparent"
+            >
               <div
                 aria-hidden="true"
                 className="h-5 w-1 bg-background group-hover:opacity-70"
