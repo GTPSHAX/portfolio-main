@@ -1,0 +1,29 @@
+---
+slug: "growtopia-items-enum-generator"
+title: "Growtopia Items Enum Generator"
+description: "A simple tool to generate C/C++ enums for Growtopia items id based on the item list."
+date: "2026-01-06"
+url: ""
+repository: "https://github.com/GTPSHAX/growtopia-items-enum-generator"
+thumbnail: "/images/projects/preview-growtopia-items-enum-generator.png"
+---
+
+# Growtopia Items Enum Generator
+
+A simple tool to generate C/C++ header files containing enums for Growtopia items based on the items.json decoded with [GuckTube](https://gucktubeyt.github.io/GrowTools/).
+
+## Background
+
+When I was working on a Growtopia private server project, I needed a way to easily reference item IDs in my code. Manually maintaining a list of item IDs and their corresponding names was tedious and error-prone. To solve this problem, I decided to create the Growtopia Items Enum Generator, which automatically generates C/C++ header files containing enums based on the official Growtopia item list. This tool allows me to keep my code organized and up-to-date with the latest items without having to manually update the enum definitions every time new items are added or existing ones are modified.
+
+## Features
+
+*   **Automated Generation:** Automatically generates C++ enum headers based on the Growtopia `items.json` file.
+*   **Time-Saving:** Eliminates the need to manually write and maintain enums for thousands of items.
+*   **Easy to Use:** Generates the required files quickly with a simple startup script.
+*   **Maintainable:** Automatically update your project's enums whenever new items are added by simply re-running the generator.
+
+## Tech Stack
+
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Runtime:** [Node.js](https://nodejs.org/) / [Bun](https://bun.sh/)
