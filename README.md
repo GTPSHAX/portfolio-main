@@ -1,8 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Project
+
+A simple and to-the-point personal portfolio built with modern web technologies.
+
+## Preview
+
+### Desktop
+<img src="images/preview-desktop.png" alt="Desktop View" width="250" />
+<img src="images/preview-desktop-project.png" alt="Desktop Project View" width="250" />
+
+### Mobile
+<img src="images/preview-mobile.png" alt="Mobile View" width="250" /> <img src="images/preview-mobile-project.png" alt="Mobile Project View" width="250" />
+
+## Tech Stack
+
+*   **Framework:** [Next.js](https://nextjs.org/) (App Router)
+*   **Library:** [React](https://react.dev/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [clsx](https://github.com/lukeed/clsx) / [tailwind-merge](https://github.com/dcastil/tailwind-merge)
+*   **UI Components:** [Radix UI](https://www.radix-ui.com/) & [shadcn/ui](https://ui.shadcn.com/)
+*   **Content:** [MDX](https://mdxjs.com/) & [Remark](https://github.com/remarkjs/remark)
+*   **Animations:** [Motion (Framer Motion)](https://motion.dev/) & [GSAP](https://gsap.com/)
+*   **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+
+## Features
+
+*   **MDX Support:** Write content (like the about page and projects) quickly using MDX.
+*   **Interactive Animations:** Smooth page transitions and text splitting animations powered by Framer Motion and GSAP.
+*   **Dark/Light Mode:** Seamless theme switching with `next-themes`.
+*   **Responsive Layout:** Fully responsive UI relying on Tailwind CSS.
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies (assuming you use `npm`, `yarn`, `pnpm`, or `bun`):
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +56,29 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   `src/app/` - Next.js App Router (pages, layout, routing)
+*   `src/components/` - Reusable UI components (buttons, nav, layouts, sections)
+*   `content/` - MDX content files for projects and general pages
+*   `public/` - Static assets like images and site manifests
 
-## Learn More
+## Routing & Build Preview
 
-To learn more about Next.js, take a look at the following resources:
+Here is an overview of the app's routing structure generated during a production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /og
+├ ● /project/[slug]
+│ ├ /project/example2
+│ └ /project/example
+├ ○ /robots.txt
+└ ○ /sitemap.xml
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+```
