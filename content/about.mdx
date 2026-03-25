@@ -1,0 +1,81 @@
+---
+  title: "A self-taught developer's two-year journey."
+  description: "I began my coding journey in 2023, building a strong foundation with C++ and command-line applications. Since then, I've transitioned into <b>modern web development</b>, focusing on building scalable applications with the latest frameworks and technologies."
+---
+import { TbBrandCpp, TbBrandJavascript, TbBrandTypescript, TbBrandGolang, TbBrandRust, TbBrandNodejs, TbBrandNextjs } from "react-icons/tb";
+import { FaJava } from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { SiExpress } from "react-icons/si";
+import { BunIcon } from "@/components/icons/simple-icons-bun";
+
+<div className="flex flex-col gap-10 font-mono">
+  <section className="flex flex-col gap-4">
+    <div className="flex items-center gap-2 text-sm text-accent/60">
+      <FaArrowRightLong className="text-green-500" />
+      <span className="tracking-widest uppercase">~/languages/primary</span>
+    </div>
+
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandCpp size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">C++</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandJavascript size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">JavaScript</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandTypescript size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">TypeScript</span>
+      </li>
+    </ul>
+  </section>
+
+  <section className="flex flex-col gap-4">
+    <div className="flex items-center gap-2 text-sm text-accent/60">
+      <FaArrowRightLong className="text-blue-500" />
+      <span className="tracking-widest uppercase">~/languages/secondary</span>
+    </div>
+
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <FaJava size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Java</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandGolang size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Golang</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandRust size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Rust</span>
+      </li>
+    </ul>
+  </section>
+  
+  <section className="flex flex-col gap-4">
+    <div className="flex items-center gap-2 text-sm text-accent/60">
+      <FaArrowRightLong className="text-yellow-500" />
+      <span className="tracking-widest uppercase">~/stack/frameworks</span>
+    </div>
+
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandNodejs size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Node.js</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <BunIcon size={22} className="text-accent/80 group-hover:text-accent transition-colors fill-accent/80 group-hover:fill-accent" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Bun.js</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <SiExpress size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Express</span>
+      </li>
+      <li className="group flex items-center gap-3 px-4 py-3 border border-accent/20 bg-foreground/30 hover:border-accent/60 hover:bg-accent/5 transition-all duration-300 rounded-sm cursor-default">
+        <TbBrandNextjs size={22} className="text-accent/80 group-hover:text-accent transition-colors" />
+        <span className="text-accent/80 group-hover:text-accent text-sm">Next.js</span>
+      </li>
+    </ul>
+  </section>
+</div>
