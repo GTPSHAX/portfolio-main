@@ -26,9 +26,16 @@ export default async function AboutSection() {
 
       <div className="container z-1 grid w-full h-full grid-cols-1 lg:grid-cols-2 py-10">
         {/* About Content */}
+        {/* Accessible duplicate for screen readers */}
+        <div
+          className="sr-only"
+          aria-hidden="false"
+          dangerouslySetInnerHTML={{ __html: aboutFrontmatter.title + "\n" + aboutFrontmatter.description }}
+        />
         <StaggerChildren
           delay={0.2}
           staggerDelay={0.15}
+          accessible={false}
           className="flex flex-col gap-5 p-6 h-fit lg:sticky lg:top-24"
         >
           <StaggerItem direction="down">
@@ -61,9 +68,14 @@ export default async function AboutSection() {
         </StaggerChildren>
 
         {/* Skills Content */}
+        {/* Accessible duplicate for screen readers */}
+        <div className="sr-only" aria-hidden="false">
+          {MDXContent({})}
+        </div>
         <StaggerChildren
           delay={0.4}
           staggerDelay={0.15}
+          accessible={false}
           className="flex flex-col gap-5 p-6 h-full"
         >
           <StaggerItem direction="down">

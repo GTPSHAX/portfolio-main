@@ -10,6 +10,7 @@ interface StaggerChildrenProps {
   staggerDelay?: number;
   delay?: number;
   viewportTrigger?: boolean;
+  accessible?: boolean;
 }
 
 export default function StaggerChildren({
@@ -18,16 +19,17 @@ export default function StaggerChildren({
   staggerDelay = 0.1,
   delay = 0,
   viewportTrigger = true,
+  accessible = true,
 }: StaggerChildrenProps) {
   return (
     <motion.div
       className={cn(className)}
-      initial="hidden"
+      initial={"hidden"}
       whileInView={viewportTrigger ? "visible" : undefined}
       animate={!viewportTrigger ? "visible" : undefined}
       viewport={viewportTrigger ? { once: true, margin: "-50px" } : undefined}
       variants={{
-        hidden: { opacity: 1 },
+        hidden: { opacity: accessible ? 1 : 0 },
         visible: {
           opacity: 1,
           transition: {
@@ -47,6 +49,7 @@ interface StaggerItemProps {
   className?: string;
   direction?: "up" | "down" | "left" | "right" | "none";
   duration?: number;
+  accessible?: boolean;
 }
 
 export function StaggerItem({
@@ -54,22 +57,23 @@ export function StaggerItem({
   className,
   direction = "up",
   duration = 0.5,
+  accessible = false,
 }: StaggerItemProps) {
   const getHiddenVariant = () => {
     const distance = 30;
     switch (direction) {
       case "up":
-        return { y: distance, opacity: 0 };
+        return { y: distance, opacity: accessible ? 1 : 0 };
       case "down":
-        return { y: -distance, opacity: 0 };
+        return { y: -distance, opacity: accessible ? 1 : 0 };
       case "left":
-        return { x: distance, opacity: 0 }; // Starts right, moves left
+        return { x: distance, opacity: accessible ? 1 : 0 }; // Starts right, moves left
       case "right":
-        return { x: -distance, opacity: 0 }; // Starts left, moves right
+        return { x: -distance, opacity: accessible ? 1 : 0 }; // Starts left, moves right
       case "none":
-        return { opacity: 0 };
+        return { opacity: accessible ? 1 : 0 };
       default:
-        return { y: distance, opacity: 0 };
+        return { y: distance, opacity: accessible ? 1 : 0 };
     }
   };
 
