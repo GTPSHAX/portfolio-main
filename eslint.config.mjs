@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
     
     // Custom ignores:
     "src/components/SplitText.tsx",
+    "cloudflare-r2-worker/**"
   ]),
   {
     plugins: {
