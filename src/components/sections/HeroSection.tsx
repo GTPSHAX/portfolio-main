@@ -42,9 +42,17 @@ export default async function HeroSection() {
         {/* Hero Content */}
         <div className="relative w-full h-full flex items-center">
           <div className="relative z-2 pt-10 flex-1 h-full flex flex-col">
+            {/* Accessible duplicate for screen readers */}
+            <div className="sr-only" aria-hidden="false">
+              <p>Hello, I&apos;m</p>
+              <h1 dangerouslySetInnerHTML={{ __html: indexFrontmatter.name }} />
+              <p>{indexFrontmatter.roles?.join(", ")}</p>
+            </div>
+
             <StaggerChildren
               delay={3.5}
               staggerDelay={0.15}
+              accessible={false}
               className="flex flex-col items-start gap-3"
             >
               {/* Badge */}

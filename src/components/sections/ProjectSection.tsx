@@ -15,9 +15,20 @@ export default async function ProjectSection() {
     >
       <div className="container z-1 w-full h-full py-10 divide-accent/80">
         {/* Projects Header */}
+        {/* Accessible duplicates for screen readers */}
+        <div className="sr-only" aria-hidden="false">
+          <h2 dangerouslySetInnerHTML={{ __html: "My Projects" }} />
+          <p
+            dangerouslySetInnerHTML={{
+              __html: "Here are some of the projects I've worked on recently.",
+            }}
+          />
+        </div>
+
         <StaggerChildren
           className="flex flex-col gap-5 p-6"
           staggerDelay={0.15}
+          accessible={false}
         >
           <StaggerItem direction="down">
             <div className="flex items-center justify-center gap-2">

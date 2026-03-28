@@ -20,6 +20,20 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
+      {/* Accessible project list for screen readers */}
+      <div className="sr-only" aria-hidden="false">
+        <h2>Projects</h2>
+        {projects && projects.length > 0 ? (
+          projects.map((p) => (
+            <div key={p.slug}>
+              <strong>{p.title}</strong>
+              <div>{p.description}</div>
+            </div>
+          ))
+        ) : (
+          <div>No projects available</div>
+        )}
+      </div>
       <ul className="grid gap-6 p-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects && projects.length > 0 ? (
           visibleProjects?.map((project, index) => (
